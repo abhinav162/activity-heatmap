@@ -1,0 +1,10 @@
+.Layout {
+    display: grid;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+    max-width: 1000px;
+    border: 1px solid var(--bg-2);
+    padding: 1rem;
+    border-radius: var(--br-1);
+}

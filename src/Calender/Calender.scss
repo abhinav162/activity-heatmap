@@ -1,0 +1,95 @@
+.component_ActivityCalender {
+    $cell-height: 11.7px;
+    $cell-width: 11.7px;
+    $cell-margin: 1.8px;
+    $cell-weekdays-width: 32px;
+
+    border-radius: var(--br-1);
+    color: var(--color-3);
+    width: calc($cell-width * 55 + $cell-margin*85) + $cell-weekdays-width;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: scroll;
+
+    .timeline {
+        width: 100%;
+        border-radius: 8px;
+
+        .timeline-months {
+            display: flex;
+            padding-left: $cell-weekdays-width;
+
+            &-month {
+                width: $cell-width;
+                margin: $cell-margin;
+                font-size: $cell-height;
+            }
+
+            .Jan~.Jan,
+            .Feb~.Feb,
+            .Mar~.Mar,
+            .Apr~.Apr,
+            .May~.May,
+            .Jun~.Jun,
+            .Jul~.Jul,
+            .Aug~.Aug,
+            .Sep~.Sep,
+            .Oct~.Oct,
+            .Nov~.Nov,
+            .Dec~.Dec {
+                visibility: hidden;
+            }
+        }
+
+        &-body {
+            display: flex;
+
+            .timeline-weekdays {
+                display: flex;
+                flex-direction: column;
+                height: calc($cell-height * 7 + ($cell-margin * 12));
+                margin-top: $cell-margin;
+                justify-content: space-evenly;
+                width: $cell-weekdays-width;
+
+                &-weekday {
+                    font-size: $cell-height;
+                    height: $cell-height + $cell-margin;
+                }
+            }
+
+            .timeline-cells {
+                display: inline-flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: #{(10 + 4) * 8}px;
+
+                &-cell {
+                    min-height: $cell-height;
+                    min-width: $cell-width;
+                    margin: $cell-margin;
+                    border-radius: 2px;
+                    background-color: var(--bg-3);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    // Responsive Styles
+    @media (max-width: 600px) {
+        .timeline-months-month {
+            font-size: $cell-height * 0.8;
+        }
+
+        .timeline-weekdays-weekday {
+            font-size: $cell-height * 0.8;
+        }
+
+        .timeline-cells-cell {
+            min-height: $cell-height * 0.8;
+            min-width: $cell-width * 0.8;
+        }
+    }
+}
