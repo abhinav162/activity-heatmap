@@ -1,5 +1,7 @@
 # Activity Heatmap
 
+![Alt text](image.png)
+
 ## How to run
 
 - Clone this repository
