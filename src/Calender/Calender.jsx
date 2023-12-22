@@ -56,12 +56,16 @@ function Timeline({ activityHistory, year, colorFunc }) {
     let endDate = moment().set('year', year).endOf('year').add(1, 'days');
     const range = [startDate, endDate];
 
-    let data = Array.from(activityHistory).map((item) => {
-        return {
-            date: moment(item.date),
-            value: item.count
-        };
-    });
+    let data = []
+
+    if (activityHistory) {
+        data = Array.from(activityHistory).map((item) => {
+            return {
+                date: moment(item.date),
+                value: item.count
+            };
+        });
+    }
 
     const days = Math.abs(range[0].diff(range[1], 'days'));
     const cells = useMemo(() => Array.from({ length: days }), [days]);
